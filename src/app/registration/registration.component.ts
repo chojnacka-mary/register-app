@@ -8,7 +8,7 @@ import { RegistrationForm } from '../registration-form';
 })
 export class RegistrationComponent implements OnInit {
 
-  form = new RegistrationForm();
+  user = new RegistrationForm();
 
   submitted = false;
   onSubmit() { this.submitted = true; }

@@ -4,46 +4,64 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLongTitle">SIGN UP</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="registrationForm.reset()">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <form (ngSubmit)="onSubmit()" #registrationForm="ngForm">
-          <div class="form-group">
-            <label for="InputEmail">Email</label>
-            <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" required [(ngModel)]="form.email" name="email" #email="ngModel">
-            <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
-              <small>Email is required</small>
+        <div [hidden]="submitted">
+          <form (ngSubmit)="onSubmit()" #registrationForm="ngForm">
+            <div class="form-group">
+              <label for="InputEmail">Email</label>
+              <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" required [(ngModel)]="user.email" name="email" #email="ngModel">
+              <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+                <small>Email is required</small>
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label for="InputPassword">Password</label>
-            <input type="password" class="form-control" id="InputPassword" required [(ngModel)]="form.password" name="password" #password="ngModel">
-            <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
-              <small>Password is required</small>
+            <div class="form-group">
+              <label for="InputPassword">Password</label>
+              <input type="password" class="form-control" id="InputPassword" required [(ngModel)]="user.password" name="password" #password="ngModel">
+              <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
+                <small>Password is required</small>
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label for="InputPhone">Phone</label>
-            <input type="text" class="form-control" id="InputPhone" required [(ngModel)]="form.phone" name="phone" #phone="ngModel">
-            <div [hidden]="phone.valid || phone.pristine" class="alert alert-danger">
-              <small>Phone is required</small>
+            <div class="form-group">
+              <label for="InputPhone">Phone</label>
+              <input type="text" class="form-control" id="InputPhone" required [(ngModel)]="user.phone" name="phone" #phone="ngModel">
+              <div [hidden]="phone.valid || phone.pristine" class="alert alert-danger">
+                <small>Phone is required</small>
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label for="InputPicture">Picture</label>
-            <input type="text" class="form-control" id="InputPicture" required [(ngModel)]="form.picture" name="picture" #picture="ngModel">
-            <div [hidden]="picture.valid || picture.pristine" class="alert alert-danger">
-              <small>Picture is required</small>
+            <div class="form-group">
+              <label for="InputPicture">Picture</label>
+              <input type="text" class="form-control" id="InputPicture" required [(ngModel)]="user.picture" name="picture" #picture="ngModel">
+              <div [hidden]="picture.valid || picture.pristine" class="alert alert-danger">
+                <small>Picture is required</small>
+              </div>
             </div>
+            <div class="form-group">
+              <label for="InputCode">Referral code (optional)</label>
+              <input type="text" class="form-control" id="InputCode" [(ngModel)]="user.referral_code" name="referral_code">
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="!registrationForm.form.valid">Submit</button>
+          </form>
+        </div>
+
+        <!-- After submitting -->
+        <div [hidden]="!submitted">
+          <h2>You submitted the following:</h2>
+          <div class="row">
+            <div class="col-xs-3">Email:</div>
+            <div class="col-xs-9  pull-left">{{ user.email }}</div>
           </div>
-          <div class="form-group">
-            <label for="InputCode">Referral code (optional)</label>
-            <input type="text" class="form-control" id="InputCode" [(ngModel)]="form.referral_code" name="referral_code">
+          <div class="row">
+            <div class="col-xs-3">Phone:</div>
+            <div class="col-xs-9 pull-left">{{ user.phone }}</div>
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+          <br>
+          <button class="btn btn-primary" (click)="submitted=false">Edit</button>
+        </div>
+
       </div>
     </div>
   </div>
