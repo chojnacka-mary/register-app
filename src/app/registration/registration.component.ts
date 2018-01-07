@@ -10,8 +10,8 @@ export class RegistrationComponent implements OnInit {
 
   form = new RegistrationForm();
 
-  //submitted = false;
-  //onSubmit() { this.submitted = true; }
+  submitted = false;
+  onSubmit() { this.submitted = true; }
 
   constructor() { }
 

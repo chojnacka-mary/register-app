@@ -9,23 +9,34 @@
         </button>
       </div>
       <div class="modal-body">
-        <form>
+        <form (ngSubmit)="onSubmit()" #registrationForm="ngForm">
           <div class="form-group">
-            <label for="InputEmail1">Email</label>
-            <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" required [(ngModel)]="form.email" name="email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <label for="InputEmail">Email</label>
+            <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" required [(ngModel)]="form.email" name="email" #email="ngModel">
+            <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+              <small>Email is required</small>
+            </div>
           </div>
           <div class="form-group">
-            <label for="InputPassword1">Password</label>
-            <input type="password" class="form-control" id="InputPassword1" required [(ngModel)]="form.password" name="password">
+            <label for="InputPassword">Password</label>
+            <input type="password" class="form-control" id="InputPassword" required [(ngModel)]="form.password" name="password" #password="ngModel">
+            <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
+              <small>Password is required</small>
+            </div>
           </div>
           <div class="form-group">
             <label for="InputPhone">Phone</label>
-            <input type="text" class="form-control" id="InputPhone" required [(ngModel)]="form.phone" name="phone">
+            <input type="text" class="form-control" id="InputPhone" required [(ngModel)]="form.phone" name="phone" #phone="ngModel">
+            <div [hidden]="phone.valid || phone.pristine" class="alert alert-danger">
+              <small>Phone is required</small>
+            </div>
           </div>
           <div class="form-group">
             <label for="InputPicture">Picture</label>
-            <input type="text" class="form-control" id="InputPicture" required [(ngModel)]="form.picture" name="picture">
+            <input type="text" class="form-control" id="InputPicture" required [(ngModel)]="form.picture" name="picture" #picture="ngModel">
+            <div [hidden]="picture.valid || picture.pristine" class="alert alert-danger">
+              <small>Picture is required</small>
+            </div>
           </div>
           <div class="form-group">
             <label for="InputCode">Referral code (optional)</label>
