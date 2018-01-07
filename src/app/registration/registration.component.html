@@ -12,24 +12,24 @@
         <form>
           <div class="form-group">
             <label for="InputEmail1">Email</label>
-            <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp">
+            <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" required [(ngModel)]="form.email" name="email">
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
           </div>
           <div class="form-group">
             <label for="InputPassword1">Password</label>
-            <input type="password" class="form-control" id="InputPassword1">
+            <input type="password" class="form-control" id="InputPassword1" required [(ngModel)]="form.password" name="password">
           </div>
           <div class="form-group">
             <label for="InputPhone">Phone</label>
-            <input type="text" class="form-control" id="InputPhone">
+            <input type="text" class="form-control" id="InputPhone" required [(ngModel)]="form.phone" name="phone">
           </div>
           <div class="form-group">
             <label for="InputPicture">Picture</label>
-            <input type="text" class="form-control" id="InputPicture">
+            <input type="text" class="form-control" id="InputPicture" required [(ngModel)]="form.picture" name="picture">
           </div>
           <div class="form-group">
-            <label for="InputCode">Referral code</label>
-            <input type="text" class="form-control" id="InputCode">
+            <label for="InputCode">Referral code (optional)</label>
+            <input type="text" class="form-control" id="InputCode" [(ngModel)]="form.referral_code" name="referral_code">
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>

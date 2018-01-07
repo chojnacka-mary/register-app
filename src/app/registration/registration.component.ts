@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RegistrationForm } from '../registration-form';
 
 @Component({
   selector: 'app-registration',
@@ -6,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
+
+  form = new RegistrationForm();
+
+  //submitted = false;
+  //onSubmit() { this.submitted = true; }
 
   constructor() { }
 
