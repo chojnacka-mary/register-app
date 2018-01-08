@@ -9,6 +9,14 @@ main {
   margin-top: 40px;
 }
 
+.nav-link {
+  color: #fff;
+}
+
+.lead span {
+  font-weight: bold;
+}
+
 /* ------------------ form ---------------------------- */
 
 .ng-valid[required], .ng-valid.required  {
