@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { RegistrationForm } from '../registration-form';
+import {Component, OnInit} from '@angular/core';
+import {RegistrationForm} from '../registration-form';
 import {RegisterService} from '../register.service';
-import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-registration',
@@ -9,23 +8,22 @@ import {Observable} from 'rxjs/Observable';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
-
   user = new RegistrationForm();
-
   submitted = false;
-  onSubmit() { this.submitted = true; this.addPost()}
 
-  constructor(private registerService: RegisterService) { }
+  onSubmit() {
+    this.submitted = true;
+    this.sendForm();
+  }
+
+  constructor(private registerService: RegisterService) {
+  }
 
   ngOnInit() {
   }
 
-  addPost() {
-    console.log('IT WORKS');
-    console.log(this.user);
+  sendForm() {
     this.registerService.createUser(this.user);
-
-
   }
 
 }

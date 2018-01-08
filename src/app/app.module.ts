@@ -8,12 +8,14 @@ import {HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { RegisterService } from './register.service';
+import { SliderComponent } from './slider/slider.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    SliderComponent
   ],
   imports: [
     HttpClientModule,
