@@ -1,3 +1,6 @@
+/*@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";*/
+
 /* ---------------- main page -------------------------- */
 
 .starter-template {
@@ -15,6 +18,12 @@ main {
 
 .lead span {
   font-weight: bold;
+}
+
+#wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* ------------------ form ---------------------------- */
