@@ -9,10 +9,6 @@ main {
   margin-top: 40px;
 }
 
-body {
-  background-image: url(assets/images/group-5.png);
-}
-
 /* ------------------ form ---------------------------- */
 
 .ng-valid[required], .ng-valid.required  {

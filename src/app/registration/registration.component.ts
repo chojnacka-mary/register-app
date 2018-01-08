@@ -23,7 +23,7 @@ export class RegistrationComponent implements OnInit {
   addPost() {
     console.log('IT WORKS');
     console.log(this.user);
-    this.registerService.createFood(this.user).subscribe(res => console.log('eee' + res));
+    this.registerService.createUser(this.user);
 
 
   }
